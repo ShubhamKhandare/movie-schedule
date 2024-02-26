@@ -6,18 +6,10 @@ from .models import Genre, Movie
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ["id", "name"]
+        fields = "__all__"
 
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = [
-            "id",
-            "title",
-            "poster",
-            "genres",
-            "year_release",
-            "metacritic_rating",
-            "runtime",
-        ]
+        fields = "__all__"
