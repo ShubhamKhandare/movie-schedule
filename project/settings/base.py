@@ -4,8 +4,10 @@ from corsheaders.defaults import default_headers
 from .env import ABS_PATH, ENV_BOOL, ENV_INT, ENV_LIST, ENV_STR
 
 DEBUG = ENV_BOOL("DEBUG", False)
-SECRET_KEY = ENV_STR("SECRET_KEY", "secret" if DEBUG else "")
-ALLOWED_HOSTS = ENV_LIST("ALLOWED_HOSTS", ",", ["*"] if DEBUG else [])
+SECRET_KEY = "3d07dc7e-2dd1-4eb4-b5c3-f642d8e7d633"
+ALLOWED_HOSTS = ['*']
+# SECRET_KEY = ENV_STR("SECRET_KEY", "secret" if DEBUG else "")
+# ALLOWED_HOSTS = ENV_LIST("ALLOWED_HOSTS", ",", ["*"] if DEBUG else [])
 
 INSTALLED_APPS = [
     "django.contrib.admin",
