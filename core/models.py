@@ -29,6 +29,7 @@ class Movie(models.Model):
     runtime = models.IntegerField(
         help_text="The duration of the movie in minutes.",
     )
+    schedule_date = models.DateField()
 
 
 class Genre(models.Model):

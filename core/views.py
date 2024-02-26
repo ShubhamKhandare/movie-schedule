@@ -15,7 +15,7 @@ class GenreViewSet(viewsets.ModelViewSet):
 
 
 class MovieViewSet(viewsets.ModelViewSet):
-    queryset = Movie.objects.all().prefetch_related()
+    queryset = Movie.objects.all().prefetch_related().order_by("-schedule_date")
     serializer_class = MovieSerializer
     permission_classes = (permissions.MoviePermission,)
     filter_backends = [DjangoFilterBackend, SearchFilter]
