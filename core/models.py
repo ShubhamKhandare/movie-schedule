@@ -5,7 +5,10 @@ class Movie(models.Model):
     """
     A model to store information about movies on the schedule.
     """
-
+    thumbnail = models.URLField(
+        max_length=1000,
+        help_text="The thumbnail of the movie"
+    )
     title = models.CharField(
         max_length=255,
         help_text="The title of the movie.",
@@ -30,6 +33,10 @@ class Movie(models.Model):
         help_text="The duration of the movie in minutes.",
     )
     schedule_date = models.DateField()
+    vote_count = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.id} : {self.title}"
 
 
 class Genre(models.Model):
@@ -41,3 +48,6 @@ class Genre(models.Model):
         max_length=50,
         help_text="The name of the genre.",
     )
+
+    def __str__(self):
+        return f"{self.id} : {self.name}"

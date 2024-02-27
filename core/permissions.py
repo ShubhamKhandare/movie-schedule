@@ -31,13 +31,9 @@ class GenrePermission(permissions.BasePermission):
 
 class MoviePermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.method in permissions.SAFE_METHODS:
+        if request.method in permissions.SAFE_METHODS or view.action in ["update", "partial_update"]:
             # anyone can read
             return True
-
-        if view.action in ["update", "partial_update"]:
-            # only the admins can update
-            return request.user.is_authenticated and request.user.is_superuser
 
         if view.action == "destroy":
             # only the admins can delete
